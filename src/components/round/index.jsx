@@ -10,8 +10,33 @@ import questionSets from "../../questions.json";
 export default function Round({ setPlayAgain }) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState({
+              materialidades: 0,
+              metodologias: 0,
+              contextos: 0,
+              identidades: 0,
+              comunicacion: 0,
+  });  
   const [isLoading, setIsLoading] = useState(true);
+
+  const options = [
+    {
+      value: 5,
+      label: 'Me interesa mucho'
+    },
+    {
+      value: 3,
+      label: 'Tengo algo de interés'
+    },
+    {
+      value: 1,
+      label: 'No entiendo muy bien a que se refiere'
+    },
+    {
+      value: 0,
+      label: 'No me interesa'
+    }
+  ]
   
   useEffect(() => {
     const roundQuestions = _.sample(questionSets);
@@ -21,7 +46,6 @@ export default function Round({ setPlayAgain }) {
   if (_.isEmpty(questions)) return null;
   
   const moveToNext = isCorrect => {
-    if (isCorrect) setScore(score + 1);
     setCurrentQuestionNumber(currentQuestionNumber + 1)
   };
   
@@ -43,6 +67,9 @@ export default function Round({ setPlayAgain }) {
                 moveToNext={moveToNext}
                 questionCount={questionsCount}
                 currentQuestionNumber={currentQuestionNumber}
+                options={options}
+                score={score}
+                setScore={setScore}
               />
             </div>
           }

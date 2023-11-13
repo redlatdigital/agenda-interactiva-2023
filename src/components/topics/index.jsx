@@ -11,7 +11,7 @@ import "./index.css";
 const Topics = ({ follow }) => <WithBackground background={Background}>
   <div className="animate__animated animate__fadeIn">
     <Logo />
-    <div className="topics col-6">
+    <div className="topics col-lg-6 col-8">
       <p className="topics-description mt-5">Armá tu agenda de manera interactiva y conocé las mesas que más te interesan</p>
       <p className="topics-description mb-5">Te vamos a hacer 15 preguntas sobre tus preferencias de estas 5 categorías:</p>
       {_(topicColors).keys()

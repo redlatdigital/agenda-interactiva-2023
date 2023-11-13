@@ -8,7 +8,6 @@ import Logo from "../logo";
 import calculando1 from '../../images/calculando1.gif';
 import calculando2 from '../../images/calculando2.gif';
 import calculando3 from '../../images/calculando3.gif';
-import calculando4 from '../../images/calculando4.gif';
 import Separator from '../separator';
 
 import { ReactComponent as TwitterIcono } from "../../images/iconoX.svg";
@@ -24,28 +23,35 @@ import "react-vis/dist/style.css";
 import "./index.css";
 
 
-const backgrounds = [ calculando1, calculando2, calculando3, calculando4 ];
+const backgrounds = [ calculando1, calculando2, calculando3 ];
 
 const FinalLoading = ({ setDoneLoading }) => {
   const [backgroundNumber, setBackgroundNumber] = useState(0);
   const background = _.get(backgrounds, backgroundNumber);
   const moveBackground = () => {
     setBackgroundNumber(backgroundNumber+1);
-    if (backgroundNumber === 3)
+    if (backgroundNumber === 2)
       setDoneLoading(true);
   }
-  setTimeout(moveBackground, 1000)
+  setTimeout(moveBackground, 1500)
 
   return <WithBackground className="loading-background">
     <Logo />
-
-    <img src={background} alt="Calculando" height={200} className="mt-5"/>
+    <img src={background} alt="Calculando..." height={200} className="mt-5"/>
   </WithBackground>
 };
 
 
+const mapLabels = {
+  materialidades: "Materialidades, medios e infraestructuras",
+  metodologias: "Perspectivas éticas y metodológicas. ",
+  contextos: "Contextos digitales, digitalizados y transformados",
+  identidades: "Identidades, subjetividades y comunidades",
+  comunicacion: "Comunicación científica y organización a través de lo digital",
+}
 
-const Score = ({ score, total, setPlayAgain }) => {
+
+const Score = ({ score }) => {
   const [doneLoading, setDoneLoading] = useState(false);
 
 
@@ -65,7 +71,10 @@ const Score = ({ score, total, setPlayAgain }) => {
       navigator.clipboard.writeText(textShare);
     };
 
+    const maxValue = Math.max(...Object.values(score));
 
+    const sortedEntries = Object.entries(score).sort((a, b) => b[1] - a[1]);
+    const topTwo = sortedEntries.slice(0, 2);
 
   return <div className="full-height">
     {
@@ -79,25 +88,22 @@ const Score = ({ score, total, setPlayAgain }) => {
               className={"mt-5"}
               data={[
                 {
-                  materialidades: 5,
-                  metodologias: 3,
-                  contextos: 2,
-                  identidades: 1,
-                  comunicacion: 4,
+                  ...score,
                   fill: "rgba(114,172,240)",
                   stroke: "#cccccc"
                 },
               ]}
               tickFormat={(t) => { return "";}}
+              margin={80}
               domains={[
-                { name: "Materialidades", domain: [0, 5], getValue: (d) => d.materialidades },
-                { name: "Perspectivas metodológicas", domain: [0, 5], getValue: (d) => d.metodologias },
-                { name: "Contextos digitales", domain: [0, 5], getValue: (d) => d.contextos },
-                { name: "Identidades ", domain: [0, 5], getValue: (d) => d.identidades },
-                { name: "Comunicación científica", domain: [0, 5], getValue: (d) => d.comunicacion },
+                { name: "Materialidades", domain: [0, maxValue], getValue: (d) => d.materialidades },
+                { name: "Perspectivas metodológicas", domain: [0, maxValue], getValue: (d) => d.metodologias },
+                { name: "Contextos digitales", domain: [0, maxValue], getValue: (d) => d.contextos },
+                { name: "Identidades ", domain: [0, maxValue], getValue: (d) => d.identidades },
+                { name: "Comunicación científica", domain: [0, maxValue], getValue: (d) => d.comunicacion },
               ]}
-              width={300}
-              height={300}
+              width={400}
+              height={400}
               style={{
                 polygons: {
                   strokeWidth: 1,
@@ -106,6 +112,8 @@ const Score = ({ score, total, setPlayAgain }) => {
                 labels: {
                   textAnchor: "middle",
                   fill: "#ffffff",
+                  fontSize: 15,
+                  whiteSpace: "pre-line",
                 },
                 axes: {
                   line: {
@@ -125,7 +133,8 @@ const Score = ({ score, total, setPlayAgain }) => {
         </RadarChart>
 
               <div className="col-10">
-                <p className="score-description">{_.toUpper("Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes 'XXX' y 'YYY' ")}</p>
+                <p className="score-description">{_.toUpper("Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:")}</p>
+                {Object.values(topTwo).map((eje, key) => <p><i key={key}>{mapLabels[eje[0]]}</i></p>)}
                 <p className="score-secondary-description">{_.toUpper("Agendá las siguientes mesas que están dentro de estos ejes para que no te pierdas ninguna:")}</p>
                 <div className="table-responsive mt-5">
                   <table className="table table-dark">

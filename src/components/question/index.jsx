@@ -6,38 +6,31 @@ const MobileSizeContainer = ({ children }) => <div className="col-xl-4 col-lg-6 
   {children}
 </div>;
 
-const Option = ({ onOptionSelected, option }) =>
-  <Button className="btn-light option-button col-md-12" onClick={() => onOptionSelected(option)}>
+const Option = ({ question ,option, onOptionSelected, score, setScore }) => {
+
+  const makeChanges = () => {
+    const newScore = {...score, [question.eje]: score[question.eje]+option.value}
+    setScore(newScore)
+    onOptionSelected(option)
+  }
+
+  return <Button className="btn-light option-button col-md-12" onClick={makeChanges}>
     <span className="option-text">{option.label}</span>
   </Button>
+}
 
-const Question = ({ question, onOptionSelected }) => (
+const Question = ({ question, options, onOptionSelected, score, setScore }) => (
   <div className="col-10 animate__animated animate__fadeIn">
     <p className="question">{question.text}</p>
     <MobileSizeContainer>
-      {[
-        {
-          value: 5,
-          label: 'Me interesa mucho'
-        },
-        {
-          value: 3,
-          label: 'Tengo algo de interés'
-        },
-        {
-          value: 1,
-          label: 'No entiendo muy bien a que se refiere'
-        },
-        {
-          value: 0,
-          label: 'No me interesa'
-        }
-      ].map((option, number) =>
+      {options.map((option, number) =>
         <Row key={number} className="option">
           <Option
             question={question}
             option={option}
             onOptionSelected={onOptionSelected}
+            score={score}
+            setScore={setScore}
           />
         </Row>
       )}
