@@ -1,9 +1,9 @@
 export default {
-    "Materialidades, medios e infraestructuras.": "4BD6F7",
-    "Perspectivas éticas y metodológicas. ": "F7A334",
-    "Contextos digitales, digitalizados y transformados.": "FB2D11",
-    "Identidades, subjetividades y comunidades.": "32F991",
-    "Comunicación científica y organización a través de lo digital.": "E9F92A", 
+    "Materialidades, medios e infraestructuras.": "00A676",
+    "Perspectivas éticas y metodológicas. ": "7DCD85",
+    "Contextos digitales, digitalizados y transformados.": "3A97C9",
+    "Identidades, subjetividades y comunidades.": "7DCD85",
+    "Comunicación científica y organización a través de lo digital.": "00A676", 
   };
   
   

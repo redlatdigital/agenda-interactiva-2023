@@ -12,9 +12,9 @@ const Countdown = ({ setIsLoading }) => {
   };
 
   const numbers = {
-    3: "F7A334",
-    2: "32F991",
-    1: "9F47FC"
+    3: "00A676",
+    2: "7DCD85",
+    1: "3A97C9"
   };
   
 

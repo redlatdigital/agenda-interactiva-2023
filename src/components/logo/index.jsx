@@ -4,8 +4,8 @@ import logo from '../../images/flecha_transparente.png';
 import "./index.css";
 
 
-const Logo = ({ color = "white" }) => <div className="text-white">
-  <img className="game-images" src={logo} alt="Armar tu Mi Agenda Interactiva" /> REL↻AD
+const Logo = ({ color = "white" }) => <div className="">
+  <img className="game-images" src={logo} alt="Armar tu Agenda Interactiva" /> REL↻AD
 </div>
 
 export default Logo;
