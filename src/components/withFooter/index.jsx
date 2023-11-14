@@ -1,4 +1,3 @@
-import Separator from '../separator';
 import "./index.css";
 import Logo from "../logo";
 

@@ -2,7 +2,6 @@ import React from 'react';
 import '../../App.css';
 import Question from "../question";
 import Topic from "../topic";
-import Logo from "../logo";
 import "./index.css";
 import WithFooter from "../withFooter";
 import Progress from "../progress";

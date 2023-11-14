@@ -8,7 +8,6 @@ import Logo from "../logo";
 import calculando1 from '../../images/calculando1.gif';
 import calculando2 from '../../images/calculando2.gif';
 import calculando3 from '../../images/calculando3.gif';
-import Separator from '../separator';
 
 import { ReactComponent as TwitterIcono } from "../../images/iconoX.svg";
 import { ReactComponent as WhatsappIcono } from "../../images/iconoWhats.svg";

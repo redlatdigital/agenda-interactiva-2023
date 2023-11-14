@@ -1,7 +1,6 @@
 import React from "react";
 import _ from "lodash";
 import { Button } from "react-bootstrap";
-import Logo from "../logo";
 import WithBackground from "../withBackground";
 import WithFooter from "../withFooter";
 import Topic from "../topic";

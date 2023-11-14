@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Logo from "../logo";
 import "./index.css";
 import WithFooter from '../withFooter';
 import Topic from "../topic";
