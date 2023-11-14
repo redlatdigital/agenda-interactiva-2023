@@ -16,7 +16,7 @@ const Topics = ({ follow }) => <WithBackground background={Background}>
       <div className="animate__animated animate__fadeIn">
         <Topic />
         <div className="topics col-lg-6 col-11">
-          <p className="topics-description">Armá tu agenda de manera interactiva y conocé las mesas que más te interesan</p>
+          <p className="topics-description">Armá tu agenda de manera interactiva y conocé las mesas que te pueden llegar a interesar</p>
           <p className="topics-description mb-5">Te vamos a hacer 15 preguntas sobre tus preferencias de estas 5 categorías:</p>
           {_(topicColors).keys()
             .map((value, i) =>
