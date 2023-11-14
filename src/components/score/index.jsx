@@ -79,13 +79,10 @@ const Score = ({ score }) => {
   return <div className="full-height">
     {
       doneLoading?
-        <WithBackground background={Background}>
+        <WithBackground background={Background}> <div className="full-height">
           <WithFooter color="white">
             <div className="score-container animate__animated animate__fadeIn">
-              <Logo />
-              <Separator />
               <RadarChart
-              className={"mt-5"}
               data={[
                 {
                   ...score,
@@ -186,6 +183,7 @@ const Score = ({ score }) => {
               </div>
             </div>
           </WithFooter>
+        </div>
         </WithBackground>
       : <FinalLoading setDoneLoading={setDoneLoading}/>
   }

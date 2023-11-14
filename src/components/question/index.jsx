@@ -20,7 +20,7 @@ const Option = ({ question ,option, onOptionSelected, score, setScore }) => {
 }
 
 const Question = ({ question, options, onOptionSelected, score, setScore }) => (
-  <div className="col-10 animate__animated animate__fadeIn">
+  <div className="col-11 animate__animated animate__fadeIn">
     <p className="question">{question.text}</p>
     <MobileSizeContainer>
       {options.map((option, number) =>

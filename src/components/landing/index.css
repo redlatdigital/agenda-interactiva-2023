@@ -1,6 +1,6 @@
 .game-name {
   font-family: Nippo Bold;
-  font-size: 25px;
+  font-size: 18px;
   margin-top: 1rem;
-  font-weight: 800;
+  /* font-weight: 800; */
 }

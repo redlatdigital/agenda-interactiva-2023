@@ -11,10 +11,9 @@ export default function DidacticQuestion({ question, moveToNext, currentQuestion
 
   const FooterContent = <Progress current={currentQuestionNumber} total={questionCount} />;
 
-  return <WithFooter content={FooterContent}>
-    <Logo  />
+  return <div className="full-height"><WithFooter content={FooterContent}>
     <Topic questionNumber={currentQuestionNumber}/>
     <Question question={question} onOptionSelected={() => moveToNext()} options={options} score={score} setScore={setScore} />
 
-  </WithFooter>
+  </WithFooter></div>
 }

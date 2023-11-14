@@ -9,10 +9,10 @@
   border-top: 1px solid black;
 }
 
-.white::after,
+/* .white::after,
 .white::before {
   border-top: 1px solid white;
-}
+} */
 
 .topic {
   display: flex;
