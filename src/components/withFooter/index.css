@@ -11,3 +11,6 @@
   min-height: 75vh!important;
   border-bottom: 2px #fff solid;
 }
+.footer {
+  height: 3rem;
+}
