@@ -94,10 +94,10 @@ const Score = ({ score }) => {
               margin={80}
               domains={[
                 { name: "Materialidades", domain: [0, maxValue], getValue: (d) => d.materialidades },
-                { name: "Perspectivas metodológicas", domain: [0, maxValue], getValue: (d) => d.metodologias },
-                { name: "Contextos digitales", domain: [0, maxValue], getValue: (d) => d.contextos },
+                { name: "Metodología", domain: [0, maxValue], getValue: (d) => d.metodologias },
+                { name: "Contextos", domain: [0, maxValue], getValue: (d) => d.contextos },
                 { name: "Identidades ", domain: [0, maxValue], getValue: (d) => d.identidades },
-                { name: "Comunicación científica", domain: [0, maxValue], getValue: (d) => d.comunicacion },
+                { name: "Comunicación", domain: [0, maxValue], getValue: (d) => d.comunicacion },
               ]}
               width={400}
               height={400}
