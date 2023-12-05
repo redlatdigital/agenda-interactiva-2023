@@ -1,22 +1,10 @@
-import json
 import pandas as pd
 
-df = pd.read_csv("preguntas.csv")
-df = df.fillna("")
+datos = pd.read_csv('ponencias.csv', encoding='utf-8')
 
-df = df.rename(columns={
-    "Pregunta": "text",
-    "V/F": "answer",
-    "Respuesta": "description",
-})
+print(datos['eje'].unique())
+# json_output = datos.to_json(orient='records', force_ascii=False, default_handler=str, lines=True)
 
-df['answer'] = df['answer'].replace({'Verdadero': True, 'Falso': False})
-
-data = []
-for bloque in df['Bloque'].unique():
-    df_bloque = df[df['Bloque']==bloque]
-    df_bloque = df_bloque.drop(columns=["Bloque"])
-    data.append(df_bloque.to_dict(orient="records"))
-
-with open('questions.json', 'w', encoding='utf-8') as file:
-    json.dump(data, file, ensure_ascii=False, indent=4)    
+# archivo_json = 'ponencias.json'
+# with open(archivo_json, 'w') as file:
+#     file.write(json_output)

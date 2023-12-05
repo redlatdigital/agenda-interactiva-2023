@@ -4,6 +4,7 @@ import WithBackground from "../withBackground";
 import WithFooter from "../withFooter";
 import Background from '../../images/roundBackground.jpg';
 import Logo from "../logo";
+import ponencias from "../../ponencias.json";
 
 import calculando1 from '../../images/calculando1.gif';
 import calculando2 from '../../images/calculando2.gif';
@@ -42,11 +43,11 @@ const FinalLoading = ({ setDoneLoading }) => {
 
 
 const mapLabels = {
-  materialidades: "Materialidades, medios e infraestructuras",
-  metodologias: "Perspectivas éticas y metodológicas. ",
-  contextos: "Contextos digitales, digitalizados y transformados",
-  identidades: "Identidades, subjetividades y comunidades",
-  comunicacion: "Comunicación científica y organización a través de lo digital",
+  materialidades: "Materialidades, medios e infraestructuras.",
+  metodologias: "Perspectivas éticas y metodológicas.",
+  contextos: "Contextos digitales, digitalizados y transformados.",
+  identidades: "Identidades, subjetividades y comunidades.",
+  comunicacion: "Comunicación científica y organización a través de lo digital.",
 }
 
 
@@ -74,6 +75,11 @@ const Score = ({ score }) => {
 
     const sortedEntries = Object.entries(score).sort((a, b) => b[1] - a[1]);
     const topTwo = sortedEntries.slice(0, 2);
+    const ejesPreferidos = Object.values(topTwo).map((eje) => mapLabels[eje[0]])
+    let ponenciasPreferidas = []
+    ponencias.filter(ponencia => ponencia.eje === ejesPreferidos[0]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
+    ponencias.filter(ponencia => ponencia.eje === ejesPreferidos[1]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
+
 
   return <div className="full-height">
     {
@@ -81,87 +87,102 @@ const Score = ({ score }) => {
         <WithBackground background={Background}> <div className="full-height">
           <WithFooter color="white">
             <div className="score-container animate__animated animate__fadeIn">
-              <RadarChart
-              data={[
-                {
-                  ...score,
-                  fill: "rgba(114,172,240)",
-                  stroke: "#cccccc"
-                },
-              ]}
-              tickFormat={(t) => { return "";}}
-              margin={80}
-              domains={[
-                { name: "Materialidades", domain: [0, maxValue], getValue: (d) => d.materialidades },
-                { name: "Metodología", domain: [0, maxValue], getValue: (d) => d.metodologias },
-                { name: "Contextos", domain: [0, maxValue], getValue: (d) => d.contextos },
-                { name: "Identidades ", domain: [0, maxValue], getValue: (d) => d.identidades },
-                { name: "Comunicación", domain: [0, maxValue], getValue: (d) => d.comunicacion },
-              ]}
-              width={400}
-              height={400}
-              style={{
-                polygons: {
-                  strokeWidth: 1,
-                  fillOpacity: 0.9
-                },
-                labels: {
-                  textAnchor: "middle",
-                  fill: "#ffffff",
-                  fontSize: 15,
-                  whiteSpace: "pre-line",
-                },
-                axes: {
-                  line: {
-                    fillOpacity: 0.8,
-                    strokeWidth: 0.5,
-                    strokeOpacity: 0.8
-                  },
-                  ticks: {
-                    fillOpacity: 0,
-                    strokeOpacity: 0
-                  },
-                  text: {}
-                }
-              }}
-            >
-          <CircularGridLines tickValues={[...new Array(10)].map((v, i) => i / 10 - 1)} />
-        </RadarChart>
+              <div className="col-md-10">
+                <div className="row">
+                  <div className="col-md-7">
+                    <RadarChart
+                        data={[
+                          {
+                            ...score,
+                            fill: "rgba(114,172,240)",
+                            stroke: "#cccccc"
+                          },
+                        ]}
+                        tickFormat={(t) => { return "";}}
+                        margin={80}
+                        domains={[
+                          { name: "M.M.I.", domain: [0, maxValue], getValue: (d) => d.materialidades },
+                          { name: "P.E.M.", domain: [0, maxValue], getValue: (d) => d.metodologias },
+                          { name: "C.D.T.", domain: [0, maxValue], getValue: (d) => d.contextos },
+                          { name: "I.S.C.", domain: [0, maxValue], getValue: (d) => d.identidades },
+                          { name: "C.C.O.D.", domain: [0, maxValue], getValue: (d) => d.comunicacion },
+                        ]}
+                        width={400}
+                        height={400}
+                        style={{
+                          polygons: {
+                            strokeWidth: 1,
+                            fillOpacity: 0.9
+                          },
+                          labels: {
+                            textAnchor: "middle",
+                            fill: "#ffffff",
+                            fontSize: 14,
+                          },
+                          axes: {
+                            line: {
+                              fillOpacity: 0.8,
+                              strokeWidth: 0.5,
+                              strokeOpacity: 0.8
+                            },
+                            ticks: {
+                              fillOpacity: 0,
+                              strokeOpacity: 0
+                            },
+                          }
+                        }}
+                      >
+                    <CircularGridLines tickValues={[...new Array(10)].map((v, i) => i / 10 - 1)} />
+                    </RadarChart>
+                  </div>
+                  <div className="col-md-5 text-start d-flex align-items-center ">
+                    <p className="mx-2">
+                      <h5>*Referencias de los ejes</h5>
+                      M.M.I. = Materialidades, medios e infraestructuras. <br />
+                      C.C.O.D. = Comunicación científica y organización a través de lo digital. <br />
+                      I.S.C. = Identidades, subjetividades y comunidades. <br />
+                      C.D.T. = Contextos digitales, digitalizados y transformados. <br />
+                      P.E.M. = Perspectivas éticas y metodológicas. <br />
+                    </p>
 
+                  </div>
+
+                </div>
+
+              </div>
+              
+              
+              
+              
+              
+              
               <div className="col-10">
-                <p className="score-description">{_.toUpper("Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:")}</p>
-                {Object.values(topTwo).map((eje, key) => <p><i key={key}>{mapLabels[eje[0]]}</i></p>)}
-                <p className="score-secondary-description">{_.toUpper("Agendá las siguientes mesas que están dentro de estos ejes para que no te pierdas ninguna:")}</p>
+                <p className="score-description">Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:</p>
+                <table className="table table-dark">
+                    <thead>
+                      <tr><th>🥇 {_.toUpper(ejesPreferidos[0])} 🥇</th></tr>
+                      <tr><th>🥈 {_.toUpper(ejesPreferidos[1])} 🥈</th></tr>
+                    </thead>
+                </table>
+                
+                <p className="score-secondary-description">Agendá las siguientes mesas que están dentro de estos ejes para que no te pierdas ninguna:</p>
                 <div className="table-responsive mt-5">
                   <table className="table table-dark">
                     <thead>
                       <tr>
                         <th>Eje</th>
-                        <th>Mesa</th>
-                        <th>Fecha y hora</th>
+                        <th>Título</th>
+                        <th>Autores/as</th>
+                        <th>Institución</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>XXX</td>
-                        <td>Bla bla bla 1</td>
-                        <td>DD/MM - HH:MM</td>
-                      </tr>
-                      <tr>
-                        <td>XXX</td>
-                        <td>Bla bla bla 2</td>
-                        <td>DD/MM - HH:MM</td>
-                      </tr>
-                      <tr>
-                        <td>YYY</td>
-                        <td>Bla bla bla 3</td>
-                        <td>DD/MM - HH:MM</td>
-                      </tr>    
-                      <tr>
-                        <td>YYY</td>
-                        <td>Bla bla bla 4</td>
-                        <td>DD/MM - HH:MM</td>
-                      </tr>                                            
+                    {ponenciasPreferidas.map(ponencia => <tr>
+                      <td>{ponencia['eje']}</td>
+                      <td>{ponencia['titulo']}</td>
+                      <td>{ponencia['autores']}</td>
+                      <td>{ponencia['institucion']}</td>
+                    </tr>)}                                       
                     </tbody>
                   </table>
                 </div>

@@ -13,6 +13,7 @@
 
 .score-secondary-description {
   margin-bottom: 0px;
+  margin-top: 2em;
 }
 
 .score-more-info {
@@ -85,4 +86,8 @@
   33% {opacity: 1;}
   53% {opacity: 1;}
   100% {opacity: 1;}
+}
+
+.avergas svg g text  {
+  fill: blue;
 }
