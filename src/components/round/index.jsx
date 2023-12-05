@@ -11,11 +11,12 @@ export default function Round({ setPlayAgain }) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
   const [score, setScore] = useState({
-              materialidades: 0,
-              metodologias: 0,
-              contextos: 0,
-              identidades: 0,
-              comunicacion: 0,
+              metodologias: 0.5,
+              contextos: 0.5,
+              territorio: 0.5,
+              politico: 0.5,
+              identidades: 0.5,
+              genero: 0.5,
   });  
   const [isLoading, setIsLoading] = useState(true);
 

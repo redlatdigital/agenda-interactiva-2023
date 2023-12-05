@@ -43,11 +43,12 @@ const FinalLoading = ({ setDoneLoading }) => {
 
 
 const mapLabels = {
-  materialidades: "Materialidades, medios e infraestructuras.",
-  metodologias: "Perspectivas éticas y metodológicas.",
-  contextos: "Contextos digitales, digitalizados y transformados.",
-  identidades: "Identidades, subjetividades y comunidades.",
-  comunicacion: "Comunicación científica y organización a través de lo digital.",
+  metodologias: "Enfoques Teóricos y Metodológicos para la Antropología Digital",
+  contextos: "Contextos Laborales Digitalizados",
+  territorio: "Lo Digital en el Territorio",
+  politico: "Internet como Espacio Político",
+  identidades: "Identidades y Subjetividades Online",
+  genero: "Problemáticas de Género en Línea"
 }
 
 
@@ -75,10 +76,10 @@ const Score = ({ score }) => {
 
     const sortedEntries = Object.entries(score).sort((a, b) => b[1] - a[1]);
     const topTwo = sortedEntries.slice(0, 2);
-    const ejesPreferidos = Object.values(topTwo).map((eje) => mapLabels[eje[0]])
+    const mesasPreferidas = Object.values(topTwo).map((mesa) => mapLabels[mesa[0]])
     let ponenciasPreferidas = []
-    ponencias.filter(ponencia => ponencia.eje === ejesPreferidos[0]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
-    ponencias.filter(ponencia => ponencia.eje === ejesPreferidos[1]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
+    ponencias.filter(ponencia => ponencia.mesa === mesasPreferidas[0]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
+    ponencias.filter(ponencia => ponencia.mesa === mesasPreferidas[1]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
 
 
   return <div className="full-height">
@@ -92,8 +93,8 @@ const Score = ({ score }) => {
                 <p className="score-description">Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:</p>
                 <table className="table table-dark">
                     <thead>
-                      <tr><th>🥇 {_.toUpper(ejesPreferidos[0])} 🥇</th></tr>
-                      <tr><th>🥈 {_.toUpper(ejesPreferidos[1])} 🥈</th></tr>
+                      <tr><th>🥇 {_.toUpper(mesasPreferidas[0])}</th></tr>
+                      <tr><th>🥈 {_.toUpper(mesasPreferidas[1])}</th></tr>
                     </thead>
                 </table>                
               </div>
@@ -112,11 +113,12 @@ const Score = ({ score }) => {
                         tickFormat={(t) => { return "";}}
                         margin={80}
                         domains={[
-                          { name: "M.M.I.", domain: [0, maxValue], getValue: (d) => d.materialidades },
-                          { name: "P.E.M.", domain: [0, maxValue], getValue: (d) => d.metodologias },
-                          { name: "C.D.T.", domain: [0, maxValue], getValue: (d) => d.contextos },
-                          { name: "I.S.C.", domain: [0, maxValue], getValue: (d) => d.identidades },
-                          { name: "C.C.O.D.", domain: [0, maxValue], getValue: (d) => d.comunicacion },
+                          { name: "E.T.M..", domain: [0, maxValue], getValue: (d) => d.metodologias },
+                          { name: "C.L.D.", domain: [0, maxValue], getValue: (d) => d.contextos },
+                          { name: "D.T.", domain: [0, maxValue], getValue: (d) => d.territorio },
+                          { name: "I.E.P", domain: [0, maxValue], getValue: (d) => d.politico },
+                          { name: "I.S.O.", domain: [0, maxValue], getValue: (d) => d.identidades },
+                          { name: "P.G.L.", domain: [0, maxValue], getValue: (d) => d.genero },
                         ]}
                         width={400}
                         height={400}
@@ -149,11 +151,12 @@ const Score = ({ score }) => {
                   <div className="col-md-5 text-start d-flex align-items-center ">
                     <p className="mx-2">
                       <h5>*Referencias de los ejes</h5>
-                      M.M.I. = Materialidades, medios e infraestructuras. <br />
-                      C.C.O.D. = Comunicación científica y organización a través de lo digital. <br />
-                      I.S.C. = Identidades, subjetividades y comunidades. <br />
-                      C.D.T. = Contextos digitales, digitalizados y transformados. <br />
-                      P.E.M. = Perspectivas éticas y metodológicas. <br />
+                      E.T.M. = Enfoques Teóricos y Metodológicos para la Antropología Digital <br />
+                      C.L.D. = Contextos Laborales Digitalizados <br />
+                      D.T. = Lo Digital en el Territorio <br />
+                      I.E.P. = Internet como Espacio Político <br />
+                      I.S.O. = Identidades y Subjetividades Online <br />
+                      P.G.L. = Problemáticas de Género en Línea
                     </p>
 
                   </div>
@@ -165,12 +168,12 @@ const Score = ({ score }) => {
               
               <div className="col-10">
                 
-                <p className="score-secondary-description">Agendá las siguientes mesas que están dentro de estos ejes para que no te pierdas ninguna:</p>
+                <p className="score-secondary-description">Agendá las siguientes ponencias que están dentro de estas mesas para que no te pierdas ninguna:</p>
                 <div className="table-responsive mt-3">
                   <table className="table table-dark">
                     <thead>
                       <tr>
-                        <th>Eje</th>
+                        <th>Mesa</th>
                         <th>Título</th>
                         <th>Autores/as</th>
                         <th>Institución</th>
@@ -178,7 +181,7 @@ const Score = ({ score }) => {
                     </thead>
                     <tbody>
                     {ponenciasPreferidas.map(ponencia => <tr>
-                      <td>{ponencia['eje']}</td>
+                      <td>{ponencia['mesa']}</td>
                       <td>{ponencia['titulo']}</td>
                       <td>{ponencia['autores']}</td>
                       <td>{ponencia['institucion']}</td>

@@ -16,7 +16,7 @@ const Topics = ({ follow }) => <WithBackground background={Background}>
         <Topic />
         <div className="topics col-lg-6 col-11">
           <p className="topics-description">Armá tu agenda de manera interactiva y conocé las mesas que te pueden llegar a interesar</p>
-          <p className="topics-description mb-5">Te vamos a hacer 10 preguntas sobre tus preferencias de estas 5 categorías:</p>
+          <p className="topics-description mb-4">Te vamos a hacer una docena de preguntas sobre tus preferencias de estas categorías:</p>
           {_(topicColors).keys()
             .map((value, i) =>
               <WithTopicColor
@@ -25,7 +25,7 @@ const Topics = ({ follow }) => <WithBackground background={Background}>
                 render={color => <p style={{ color }}>{value}</p>}
               />
             ).value()}
-          <Button onClick={follow} className="col-md-3 col-sm-4 col-10 play" variant="outline-light">EMPEZAR</Button>
+          <Button onClick={follow} className="col-md-3 col-sm-4 col-10 play mt-4" variant="outline-light">EMPEZAR</Button>
           <p className="game-owner mt-5">Desarrollo: ELAD2023 sobre DemocracyOS</p>
         </div>
       </div>
