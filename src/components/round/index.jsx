@@ -21,11 +21,11 @@ export default function Round({ setPlayAgain }) {
 
   const options = [
     {
-      value: 5,
+      value: 4,
       label: 'Me interesa mucho'
     },
     {
-      value: 3,
+      value: 2,
       label: 'Tengo algo de interés'
     },
     {
@@ -52,7 +52,6 @@ export default function Round({ setPlayAgain }) {
   const questionsCount = _.size(questions);
   const isActive = currentQuestionNumber < questionsCount;
   const currentQuestion = questions[currentQuestionNumber];
-
   return (
     <div className="">
     {

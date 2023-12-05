@@ -87,6 +87,17 @@ const Score = ({ score }) => {
         <WithBackground background={Background}> <div className="full-height">
           <WithFooter color="white">
             <div className="score-container animate__animated animate__fadeIn">
+
+              <div className="col-10">
+                <p className="score-description">Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:</p>
+                <table className="table table-dark">
+                    <thead>
+                      <tr><th>🥇 {_.toUpper(ejesPreferidos[0])} 🥇</th></tr>
+                      <tr><th>🥈 {_.toUpper(ejesPreferidos[1])} 🥈</th></tr>
+                    </thead>
+                </table>                
+              </div>
+
               <div className="col-md-10">
                 <div className="row">
                   <div className="col-md-7">
@@ -150,23 +161,12 @@ const Score = ({ score }) => {
                 </div>
 
               </div>
-              
-              
-              
-              
-              
+            
               
               <div className="col-10">
-                <p className="score-description">Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:</p>
-                <table className="table table-dark">
-                    <thead>
-                      <tr><th>🥇 {_.toUpper(ejesPreferidos[0])} 🥇</th></tr>
-                      <tr><th>🥈 {_.toUpper(ejesPreferidos[1])} 🥈</th></tr>
-                    </thead>
-                </table>
                 
                 <p className="score-secondary-description">Agendá las siguientes mesas que están dentro de estos ejes para que no te pierdas ninguna:</p>
-                <div className="table-responsive mt-5">
+                <div className="table-responsive mt-3">
                   <table className="table table-dark">
                     <thead>
                       <tr>
