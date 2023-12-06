@@ -56,7 +56,7 @@ const Score = ({ score }) => {
   const [doneLoading, setDoneLoading] = useState(false);
 
 
-  const textShare = `Armé mi agenda para el Encuentro Latinoamericano de Antropología digital con Mi Mi Agenda Interactiva. \nPoné a prueba tus intereses y veamos si nos encontramos en algunas mesas 😉 \n\nEntra a https://blablabla.com/ para armar tu agenda`
+  const textShare = `Ya armé mi agenda interactiva para el ELAD2023. Puedes poner a prueba tus intereses entrando a https://sites.google.com/view/antropologiadigital/encuentro-2023/agenda-interactiva y vemos si nos encontramos en algunas mesas 😉. \n\nPara más información del evento -> https://sites.google.com/view/antropologiadigital/encuentro-2023 \n\nEncuentro Latinoamericano de Antropología Digital 2023`
 
     const shareOnWhatsApp = () => {
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(textShare)}`;
@@ -89,7 +89,7 @@ const Score = ({ score }) => {
           <WithFooter color="white">
             <div className="score-container animate__animated animate__fadeIn">
 
-              <div className="col-10">
+              <div className="col-10 col-lg-6">
                 <p className="score-description">Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:</p>
                 <table className="table table-dark">
                     <thead>
@@ -99,7 +99,7 @@ const Score = ({ score }) => {
                 </table>                
               </div>
 
-              <div className="col-md-10">
+              <div className="col-md-8">
                 <div className="row">
                   <div className="col-md-7">
                     <RadarChart
@@ -149,9 +149,9 @@ const Score = ({ score }) => {
                     </RadarChart>
                   </div>
                   <div className="col-md-5 text-start d-flex align-items-center ">
-                    <p className="mx-2">
+                    <p className="mx-4">
                       <h5>*Referencias de los ejes</h5>
-                      E.T.M. = Enfoques Teóricos y Metodológicos para la Antropología Digital <br />
+                      E.T.M. = Enfoques Teóricos y Metodológicos <br />
                       C.L.D. = Contextos Laborales Digitalizados <br />
                       D.T. = Lo Digital en el Territorio <br />
                       I.E.P. = Internet como Espacio Político <br />

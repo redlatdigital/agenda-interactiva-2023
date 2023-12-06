@@ -11,12 +11,12 @@ export default function Round({ setPlayAgain }) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
   const [score, setScore] = useState({
-              metodologias: 0.5,
-              contextos: 0.5,
-              territorio: 0.5,
-              politico: 0.5,
-              identidades: 0.5,
-              genero: 0.5,
+              metodologias: 1,
+              contextos: 1,
+              territorio: 1,
+              politico: 1,
+              identidades: 1,
+              genero: 1,
   });  
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,7 +31,7 @@ export default function Round({ setPlayAgain }) {
     },
     {
       value: 1,
-      label: 'No entiendo muy bien a que se refiere'
+      label: 'No entiendo a que se refiere'
     },
     {
       value: 0,
@@ -41,7 +41,7 @@ export default function Round({ setPlayAgain }) {
   
   useEffect(() => {
     const roundQuestions = _.sample(questionSets);
-    setQuestions(roundQuestions);
+    setQuestions(_.shuffle(roundQuestions));
   }, []);
 
   if (_.isEmpty(questions)) return null;

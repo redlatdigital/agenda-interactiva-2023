@@ -20,21 +20,23 @@ const Option = ({ question ,option, onOptionSelected, score, setScore }) => {
 }
 
 const Question = ({ question, options, onOptionSelected, score, setScore }) => (
-  <div className="col-11 animate__animated animate__fadeIn">
-    <p className="question">{question.text}</p>
-    <MobileSizeContainer>
-      {options.map((option, number) =>
-        <Row key={number} className="option">
-          <Option
-            question={question}
-            option={option}
-            onOptionSelected={onOptionSelected}
-            score={score}
-            setScore={setScore}
-          />
-        </Row>
-      )}
-    </MobileSizeContainer>
+  <div className="row">
+    <div className="col-10 col-lg-6"><p className="question">{question.text}</p></div>
+    <div className="col-12">
+      <MobileSizeContainer>
+        {options.map((option, number) =>
+          <Row key={number} className="option">
+            <Option
+              question={question}
+              option={option}
+              onOptionSelected={onOptionSelected}
+              score={score}
+              setScore={setScore}
+            />
+          </Row>
+        )}
+      </MobileSizeContainer>
+    </div>
   </div>
 );
 
