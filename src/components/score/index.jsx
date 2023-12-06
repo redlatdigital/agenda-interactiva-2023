@@ -90,7 +90,7 @@ const Score = ({ score }) => {
             <div className="score-container animate__animated animate__fadeIn">
 
               <div className="col-10 col-lg-6">
-                <p className="score-description">Según las respuestas que brindaste surge que tus intereses están más cercanos de los ejes:</p>
+                <p className="score-description">Según las respuestas que brindaste surge que tus intereses se encuentran más cerca de las mesas:</p>
                 <table className="table table-dark">
                     <thead>
                       <tr><th>🥇 {_.toUpper(mesasPreferidas[0])}</th></tr>
@@ -165,6 +165,21 @@ const Score = ({ score }) => {
 
               </div>
             
+              <hr />
+                          
+              <p className="share-text">Compartí tu agenda en Redes sociales</p> 
+              <div className="mb-3">
+                <a onClick={shareOnTwitter} className="iconos">
+                  <TwitterIcono alt="twitter" />
+                </a>
+                <a onClick={shareOnWhatsApp}  className="iconos">
+                  <WhatsappIcono alt="twitter" />
+                </a>
+                <a onClick={copyToClipboard} className="iconos">
+                  <LinkIcono alt="twitter" />
+                </a>
+              </div>            
+              <hr />
               
               <div className="col-10">
                 
@@ -192,18 +207,7 @@ const Score = ({ score }) => {
               </div>
 
 
-              <p className="share-text mt-5">Compartí tu agenda en Redes sociales</p> 
-              <div>
-                <a onClick={shareOnTwitter} className="iconos">
-                  <TwitterIcono alt="twitter" />
-                </a>
-                <a onClick={shareOnWhatsApp}  className="iconos">
-                  <WhatsappIcono alt="twitter" />
-                </a>
-                <a onClick={copyToClipboard} className="iconos">
-                  <LinkIcono alt="twitter" />
-                </a>
-              </div>
+
             </div>
           </WithFooter>
         </div>
