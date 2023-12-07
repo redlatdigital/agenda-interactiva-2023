@@ -56,7 +56,7 @@ const Score = ({ score }) => {
   const [doneLoading, setDoneLoading] = useState(false);
 
 
-  const textShare = `Ya armé mi agenda interactiva para el ELAD2023. Puedes poner a prueba tus intereses entrando a https://sites.google.com/view/antropologiadigital/encuentro-2023/agenda-interactiva y vemos si nos encontramos en algunas mesas 😉. \n\nPara más información del evento -> https://sites.google.com/view/antropologiadigital/encuentro-2023 \n\nEncuentro Latinoamericano de Antropología Digital 2023`
+  const textShare = `Ya armé mi agenda interactiva para el ELAD2023. Puedes poner a prueba tus intereses entrando a https://redlatdigital.github.io/agenda-interactiva-2023/ y vemos si nos encontramos en algunas mesas 😉. \n\nPara más información del evento -> https://sites.google.com/view/antropologiadigital/encuentro-2023 \n\nEncuentro Latinoamericano de Antropología Digital 2023`
 
     const shareOnWhatsApp = () => {
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(textShare)}`;
