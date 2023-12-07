@@ -1,33 +1,12 @@
-@font-face {
-  font-family: 'OpenSans Regular';
-  src: local('OpenSans Regular'), url(./fonts/OpenSans-Regular.ttf) format('truetype');
-}
 
-@font-face {
-  font-family: 'OpenSans Bold';
-  src: local('OpenSans Bold'), url(./fonts/OpenSans-Bold.ttf) format('truetype');
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-@font-face {
-  font-family: 'Nippo';
-  src: local('Nippo'), url(./fonts/Nippo.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Nippo Bold';
-  src: local('Nippo Bold'), url(./fonts/Nippo-Bold.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'General Sans Medium';
-  src: local('General Sans Medium'), url(./fonts/GeneralSansMedium.woff) format('woff');
-}
 
 
 html, body, #root, .App, .App>div, .game-container, .full-height {
   height: 100%;
   background-color: #82D2FE;
-  font-family: 'OpenSans Regular';
+  font-family: 'Open Sans', sans-serif;
 }
 
 .App {
@@ -37,12 +16,12 @@ html, body, #root, .App, .App>div, .game-container, .full-height {
 
 
 p {
-  font-family: 'OpenSans Regular';
+  font-family: 'Open Sans', sans-serif;
 }
 
 div {
   margin: 0 auto;
-  font-family: 'OpenSans Regular';
+  font-family: 'Open Sans', sans-serif;
 }
 
 .centered {

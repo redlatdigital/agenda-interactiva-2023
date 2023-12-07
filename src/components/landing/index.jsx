@@ -10,7 +10,7 @@ const Landing = ({ follow }) => <div className="animate__animated animate__fadeO
     <div className="card text-white py-5 px-2 mx-1" style={{backgroundColor: "#000"}}>
       <div className="card-body">
       <Logo />
-      <p className="game-name">Agenda Interactiva</p>
+      <p className="game-name fw-bolder">Agenda Interactiva</p>
       </div>
 
     </div>

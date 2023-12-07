@@ -75,11 +75,12 @@ const Score = ({ score }) => {
     const maxValue = Math.max(...Object.values(score));
 
     const sortedEntries = Object.entries(score).sort((a, b) => b[1] - a[1]);
-    const topTwo = sortedEntries.slice(0, 2);
-    const mesasPreferidas = Object.values(topTwo).map((mesa) => mapLabels[mesa[0]])
+    const topThree = sortedEntries.slice(0, 3);
+    const mesasPreferidas = Object.values(topThree).map((mesa) => mapLabels[mesa[0]])
     let ponenciasPreferidas = []
     ponencias.filter(ponencia => ponencia.mesa === mesasPreferidas[0]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
     ponencias.filter(ponencia => ponencia.mesa === mesasPreferidas[1]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
+    ponencias.filter(ponencia => ponencia.mesa === mesasPreferidas[2]).forEach(ponencia => ponenciasPreferidas.push(ponencia))
 
 
   return <div className="full-height">
@@ -95,6 +96,7 @@ const Score = ({ score }) => {
                     <thead>
                       <tr><th>🥇 {_.toUpper(mesasPreferidas[0])}</th></tr>
                       <tr><th>🥈 {_.toUpper(mesasPreferidas[1])}</th></tr>
+                      <tr><th>🥉 {_.toUpper(mesasPreferidas[2])}</th></tr>
                     </thead>
                 </table>                
               </div>
