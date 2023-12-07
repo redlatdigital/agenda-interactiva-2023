@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/agenda-interactiva-2023/static/css/main.d8dd1019.chunk.css",
+    "main.js": "/agenda-interactiva-2023/static/js/main.bf141789.chunk.js",
+    "main.js.map": "/agenda-interactiva-2023/static/js/main.bf141789.chunk.js.map",
+    "runtime-main.js": "/agenda-interactiva-2023/static/js/runtime-main.8d7956f1.js",
+    "runtime-main.js.map": "/agenda-interactiva-2023/static/js/runtime-main.8d7956f1.js.map",
+    "static/css/2.9a0dceed.chunk.css": "/agenda-interactiva-2023/static/css/2.9a0dceed.chunk.css",
+    "static/js/2.4c858f70.chunk.js": "/agenda-interactiva-2023/static/js/2.4c858f70.chunk.js",
+    "static/js/2.4c858f70.chunk.js.map": "/agenda-interactiva-2023/static/js/2.4c858f70.chunk.js.map",
+    "static/js/3.a530b309.chunk.js": "/agenda-interactiva-2023/static/js/3.a530b309.chunk.js",
+    "static/js/3.a530b309.chunk.js.map": "/agenda-interactiva-2023/static/js/3.a530b309.chunk.js.map",
+    "index.html": "/agenda-interactiva-2023/index.html",
+    "static/css/2.9a0dceed.chunk.css.map": "/agenda-interactiva-2023/static/css/2.9a0dceed.chunk.css.map",
+    "static/css/main.d8dd1019.chunk.css.map": "/agenda-interactiva-2023/static/css/main.d8dd1019.chunk.css.map",
+    "static/js/2.4c858f70.chunk.js.LICENSE.txt": "/agenda-interactiva-2023/static/js/2.4c858f70.chunk.js.LICENSE.txt",
+    "static/media/calculando1.c24ed017.gif": "/agenda-interactiva-2023/static/media/calculando1.c24ed017.gif",
+    "static/media/calculando2.f371f8ae.gif": "/agenda-interactiva-2023/static/media/calculando2.f371f8ae.gif",
+    "static/media/calculando3.b0bcfdfc.gif": "/agenda-interactiva-2023/static/media/calculando3.b0bcfdfc.gif",
+    "static/media/flecha_transparente.b01e077c.png": "/agenda-interactiva-2023/static/media/flecha_transparente.b01e077c.png",
+    "static/media/iconoLink.fee1091c.svg": "/agenda-interactiva-2023/static/media/iconoLink.fee1091c.svg",
+    "static/media/iconoWhats.02865e74.svg": "/agenda-interactiva-2023/static/media/iconoWhats.02865e74.svg",
+    "static/media/iconoX.26d0b81e.svg": "/agenda-interactiva-2023/static/media/iconoX.26d0b81e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8d7956f1.js",
+    "static/css/2.9a0dceed.chunk.css",
+    "static/js/2.4c858f70.chunk.js",
+    "static/css/main.d8dd1019.chunk.css",
+    "static/js/main.bf141789.chunk.js"
+  ]
+}
