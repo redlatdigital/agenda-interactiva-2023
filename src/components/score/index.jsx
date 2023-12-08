@@ -6,6 +6,8 @@ import Background from '../../images/roundBackground.jpg';
 import Logo from "../logo";
 import ponencias from "../../ponencias.json";
 
+import ButtonVolver from "../buttonVolver"
+  
 import calculando1 from '../../images/calculando1.gif';
 import calculando2 from '../../images/calculando2.gif';
 import calculando3 from '../../images/calculando3.gif';
@@ -208,7 +210,7 @@ const Score = ({ score }) => {
                 </div>
               </div>
 
-
+            <ButtonVolver />
 
             </div>
           </WithFooter>

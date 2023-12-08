@@ -3,6 +3,7 @@ import _ from "lodash";
 import { Button } from "react-bootstrap";
 import WithBackground from "../withBackground";
 import WithFooter from "../withFooter";
+import ButtonVolver from "../buttonVolver"
 import WithTopicColor from "../withTopicColor";
 import Background from '../../images/roundBackground.jpg';
 import topicColors from "../../helpers/topicColors";
@@ -26,7 +27,7 @@ const Topics = ({ follow }) => <WithBackground background={Background}>
             ).value()}
           <Button onClick={follow} className="col-md-3 col-sm-4 col-10 play mt-5" variant="outline-light">EMPEZAR</Button>
           <p className="small mt-5"><i>* Las preguntas son hipotéticas e ilustrativas</i></p>
-          <p className="game-owner">Desarrollo: ELAD2023 sobre DemocracyOS</p>
+          <ButtonVolver />
         </div>
       </div>
       
