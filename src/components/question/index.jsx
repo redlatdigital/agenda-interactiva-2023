@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Row } from "react-bootstrap";
 import "./index.css";
 
-const MobileSizeContainer = ({ children }) => <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6">
+const MobileSizeContainer = ({ children }) => <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-8">
   {children}
 </div>;
 

@@ -23,19 +23,19 @@ export default function Round({ setPlayAgain }) {
   const options = [
     {
       value: 4,
-      label: 'Me interesa mucho'
+      label: 'Me interesa mucho 🤓'
     },
     {
       value: 2,
-      label: 'Tengo algo de interés'
+      label: 'Tengo algo de interés 🧐'
     },
     {
       value: 1,
-      label: 'No entiendo a que se refiere'
+      label: 'No entiendo a que se refiere 🤔'
     },
     {
       value: 0,
-      label: 'No me interesa'
+      label: 'No me interesa 🥱'
     }
   ]
   
