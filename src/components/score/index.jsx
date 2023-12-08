@@ -75,6 +75,8 @@ const Score = ({ score }) => {
     };
 
     const maxValue = Math.max(...Object.values(score));
+    const isMaximumValue = Object.values(score).reduce((acumulador, valor) => acumulador + valor, 0) >= 50;
+
 
     const sortedEntries = Object.entries(score).sort((a, b) => b[1] - a[1]);
     const topThree = sortedEntries.slice(0, 3);
@@ -89,18 +91,24 @@ const Score = ({ score }) => {
     {
       doneLoading?
         <WithBackground background={Background}> <div className="full-height">
+          
           <WithFooter color="white">
             <div className="score-container animate__animated animate__fadeIn">
 
               <div className="col-10 col-lg-6">
-                <p className="score-description">Según las respuestas que brindaste surge que tus intereses se encuentran más cerca de las mesas:</p>
-                <table className="table table-dark">
-                    <thead>
-                      <tr><th>🥇 {_.toUpper(mesasPreferidas[0])}</th></tr>
-                      <tr><th>🥈 {_.toUpper(mesasPreferidas[1])}</th></tr>
-                      <tr><th>🥉 {_.toUpper(mesasPreferidas[2])}</th></tr>
-                    </thead>
-                </table>                
+                <p className="mt-5">
+                  {isMaximumValue ? "¡Vaya! Parece que estás igualmente interesado en todas las mesas, según tus respuestas." : "Según tus respuestas, parece que tus intereses están más alineados con las mesas:"}
+                </p>
+                {
+                  !isMaximumValue && <table className="table table-dark">
+                  <thead>
+                    <tr><th>🥇 {_.toUpper(mesasPreferidas[0])}</th></tr>
+                    <tr><th>🥈 {_.toUpper(mesasPreferidas[1])}</th></tr>
+                    <tr><th>🥉 {_.toUpper(mesasPreferidas[2])}</th></tr>
+                  </thead>
+              </table>       
+                }
+         
               </div>
 
               <div className="col-md-8">
@@ -187,8 +195,10 @@ const Score = ({ score }) => {
               
               <div className="col-10">
                 
-                <p className="score-secondary-description">Agendá las siguientes ponencias que están dentro de estas mesas para que no te pierdas ninguna:</p>
-                <div className="table-responsive mt-3">
+                <p className="score-secondary-description">
+                  {isMaximumValue ? "Como tus intereses abarcan la mayoría de las mesas, te invitamos a explorar todas las ponencias directamente en la web del Encuentro. Haz clic en el siguiente botón:" : "Agenda las siguientes ponencias de estas mesas para no perderte ninguna:"}
+                </p>
+                { !isMaximumValue && <div className="table-responsive mt-3">
                   <table className="table table-dark">
                     <thead>
                       <tr>
@@ -207,7 +217,7 @@ const Score = ({ score }) => {
                     </tr>)}                                       
                     </tbody>
                   </table>
-                </div>
+                </div>}
               </div>
 
             <ButtonVolver />

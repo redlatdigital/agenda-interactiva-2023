@@ -15,8 +15,8 @@ const Topics = ({ follow }) => <WithBackground background={Background}>
       <div className="animate__animated animate__fadeIn">
         {/* <Topic /> */}
         <div className="topics col-lg-6 col-11">
-          <p className="small mt-5"><i>Armá tu agenda de manera interactiva y conocé las mesas que te pueden llegar a interesar</i></p>
-          <p className="fw-bolder mb-5">Te vamos a hacer una docena de preguntas para medir tus preferencias sobre estas categorías:</p>
+          <p className="small mt-5"><i>Arma tu agenda de forma interactiva y descubre las mesas que podrían interesarte.</i></p>
+          <p className="fw-bolder mb-5">Te haremos una docena de preguntas para conocer tus preferencias en estas categorías:</p>
           {_(topicColors).keys()
             .map((value, i) =>
               <WithTopicColor
